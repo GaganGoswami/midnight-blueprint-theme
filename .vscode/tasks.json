@@ -1,0 +1,97 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Package Extension",
+      "type": "shell",
+      "command": "vsce",
+      "args": ["package"],
+      "group": "build",
+      "detail": "Package the theme extension into a .vsix file",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Install Extension Locally",
+      "type": "shell",
+      "command": "code",
+      "args": ["--install-extension", "midnight-blueprint-*.vsix"],
+      "group": "build",
+      "detail": "Install the packaged extension locally",
+      "dependsOn": "Package Extension",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Validate Theme",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "validate"],
+      "group": "test",
+      "detail": "Validate theme JSON files",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Open Sample Files",
+      "type": "shell",
+      "command": "code",
+      "args": [
+        "samples/UserDashboard.tsx",
+        "samples/data_processor.py",
+        "samples/analytics.js",
+        "samples/demo.html",
+        "samples/styles.css"
+      ],
+      "group": "build",
+      "detail": "Open all sample files to test the theme",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean Build Artifacts",
+      "type": "shell",
+      "command": "rm",
+      "args": ["-f", "*.vsix"],
+      "group": "build",
+      "detail": "Remove generated .vsix files",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

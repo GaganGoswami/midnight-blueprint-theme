@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight Blueprint Theme Demo</title>
+    <style>
+        /* CSS for theme demonstration */
+        :root {
+            --primary-color: #69b7ff;
+            --secondary-color: #c792ea;
+            --success-color: #c3e88d;
+            --warning-color: #f9e79f;
+            --error-color: #ff5370;
+            --bg-primary: #1a1f2e;
+            --bg-secondary: #161b26;
+            --text-primary: #9db7d6;
+            --text-secondary: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(105, 183, 255, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .demo-card {
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(105, 183, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .demo-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 32px rgba(105, 183, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .demo-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-swatch::after {
+            content: attr(data-color);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .syntax-demo {
+            background: rgba(22, 27, 38, 0.8);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            border: 1px solid rgba(105, 183, 255, 0.1);
+        }
+
+        .keyword { color: #c792ea; }
+        .string { color: #c3e88d; }
+        .function { color: #69b7ff; }
+        .class { color: #f9e79f; }
+        .number { color: #f78c6c; }
+        .comment { color: #6b7280; font-style: italic; }
+        .operator { color: #89ddff; }
+        .property { color: #9db7d6; }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4a90e2;
+            box-shadow: 0 4px 12px rgba(105, 183, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Midnight Blueprint</h1>
+            <p>A sophisticated dark blue VS Code theme designed for elegant coding experiences with optimal readability and minimal eye strain.</p>
+        </header>
+
+        <div class="demo-grid">
+            <div class="demo-card">
+                <h3>Color Palette</h3>
+                <p>Our carefully crafted color scheme ensures perfect balance between aesthetics and functionality.</p>
+                <div class="color-palette">
+                    <div class="color-swatch" style="background: #1a1f2e" data-color="#1a1f2e"></div>
+                    <div class="color-swatch" style="background: #69b7ff" data-color="#69b7ff"></div>
+                    <div class="color-swatch" style="background: #c792ea" data-color="#c792ea"></div>
+                    <div class="color-swatch" style="background: #c3e88d" data-color="#c3e88d"></div>
+                    <div class="color-swatch" style="background: #f9e79f" data-color="#f9e79f"></div>
+                    <div class="color-swatch" style="background: #f78c6c" data-color="#f78c6c"></div>
+                </div>
+            </div>
+
+            <div class="demo-card">
+                <h3>Syntax Highlighting</h3>
+                <p>Elegant syntax highlighting optimized for modern development.</p>
+                <div class="syntax-demo">
+<span class="keyword">const</span> <span class="function">fetchData</span> <span class="operator">=</span> <span class="keyword">async</span> <span class="operator">(</span><span class="property">url</span><span class="operator">:</span> <span class="class">string</span><span class="operator">)</span> <span class="operator">=></span> <span class="operator">{</span>
+  <span class="comment">// Fetch data from API</span>
+  <span class="keyword">try</span> <span class="operator">{</span>
+    <span class="keyword">const</span> <span class="property">response</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="function">fetch</span><span class="operator">(</span><span class="property">url</span><span class="operator">);</span>
+    <span class="keyword">return</span> <span class="keyword">await</span> <span class="property">response</span><span class="operator">.</span><span class="function">json</span><span class="operator">();</span>
+  <span class="operator">}</span> <span class="keyword">catch</span> <span class="operator">(</span><span class="property">error</span><span class="operator">)</span> <span class="operator">{</span>
+    <span class="function">console</span><span class="operator">.</span><span class="function">error</span><span class="operator">(</span><span class="string">'Error:'</span><span class="operator">,</span> <span class="property">error</span><span class="operator">);</span>
+  <span class="operator">}</span>
+<span class="operator">};</span>
+                </div>
+            </div>
+
+            <div class="demo-card">
+                <h3>Key Features</h3>
+                <ul class="feature-list">
+                    <li>Dark blue base instead of harsh black</li>
+                    <li>Minimalist, clutter-free design</li>
+                    <li>Low contrast for comfortable viewing</li>
+                    <li>Semantic highlighting support</li>
+                    <li>Complete UI theming</li>
+                    <li>Multi-language optimization</li>
+                    <li>Professional appearance</li>
+                </ul>
+            </div>
+
+            <div class="demo-card">
+                <h3>Perfect For</h3>
+                <ul class="feature-list">
+                    <li>TypeScript & JavaScript development</li>
+                    <li>Python data science & backend</li>
+                    <li>React & modern web frameworks</li>
+                    <li>HTML/CSS styling</li>
+                    <li>Long coding sessions</li>
+                    <li>Professional environments</li>
+                </ul>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">Install Theme</a>
+                    <a href="#" class="btn btn-secondary">View Source</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript demo for syntax highlighting
+        class ThemeDemo {
+            constructor(name) {
+                this.name = name;
+                this.colors = {
+                    primary: '#69b7ff',
+                    secondary: '#c792ea',
+                    success: '#c3e88d',
+                    warning: '#f9e79f',
+                    error: '#ff5370'
+                };
+            }
+
+            showColorSwatches() {
+                const swatches = document.querySelectorAll('.color-swatch');
+                swatches.forEach((swatch, index) => {
+                    swatch.addEventListener('click', () => {
+                        const color = swatch.dataset.color;
+                        navigator.clipboard.writeText(color);
+                        console.log(`Copied ${color} to clipboard`);
+                    });
+                });
+            }
+
+            init() {
+                console.log(`Initializing ${this.name} theme demo`);
+                this.showColorSwatches();
+                
+                // Add some interactive effects
+                const cards = document.querySelectorAll('.demo-card');
+                cards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-4px)';
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0)';
+                    });
+                });
+            }
+        }
+
+        // Initialize the demo
+        document.addEventListener('DOMContentLoaded', () => {
+            const demo = new ThemeDemo('Midnight Blueprint');
+            demo.init();
+        });
+    </script>
+</body>
+</html>

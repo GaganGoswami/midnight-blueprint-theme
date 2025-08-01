@@ -1,0 +1,182 @@
+{
+  "name": "midnight-blueprint-config",
+  "version": "1.0.0",
+  "description": "Configuration and color definitions for Midnight Blueprint theme",
+  "colors": {
+    "palette": {
+      "primary": {
+        "background": "#1a1f2e",
+        "backgroundSecondary": "#161b26",
+        "backgroundTertiary": "#1e2433",
+        "border": "#2a3441",
+        "borderActive": "#69b7ff"
+      },
+      "text": {
+        "primary": "#9db7d6",
+        "secondary": "#6b7280",
+        "accent": "#69b7ff",
+        "muted": "#4a5568"
+      },
+      "syntax": {
+        "keyword": "#c792ea",
+        "string": "#c3e88d",
+        "function": "#69b7ff",
+        "class": "#f9e79f",
+        "number": "#f78c6c",
+        "comment": "#6b7280",
+        "operator": "#89ddff",
+        "variable": "#9db7d6",
+        "constant": "#f78c6c",
+        "type": "#f9e79f"
+      },
+      "status": {
+        "info": "#69b7ff",
+        "success": "#c3e88d",
+        "warning": "#f9e79f",
+        "error": "#ff5370"
+      },
+      "git": {
+        "added": "#c3e88d",
+        "modified": "#69b7ff",
+        "deleted": "#ff5370",
+        "ignored": "#6b7280",
+        "untracked": "#c3e88d",
+        "conflicting": "#f78c6c"
+      }
+    },
+    "semanticTokens": {
+      "enabled": true,
+      "rules": [
+        {
+          "token": "variable.readonly",
+          "foreground": "#7fb3d3"
+        },
+        {
+          "token": "parameter",
+          "foreground": "#9db7d6"
+        },
+        {
+          "token": "function",
+          "foreground": "#69b7ff"
+        },
+        {
+          "token": "method",
+          "foreground": "#69b7ff"
+        },
+        {
+          "token": "class",
+          "foreground": "#f9e79f"
+        },
+        {
+          "token": "interface",
+          "foreground": "#f9e79f"
+        },
+        {
+          "token": "type",
+          "foreground": "#f9e79f"
+        },
+        {
+          "token": "enum",
+          "foreground": "#f9e79f"
+        },
+        {
+          "token": "namespace",
+          "foreground": "#82aaff"
+        },
+        {
+          "token": "keyword",
+          "foreground": "#c792ea"
+        },
+        {
+          "token": "string",
+          "foreground": "#c3e88d"
+        },
+        {
+          "token": "number",
+          "foreground": "#f78c6c"
+        },
+        {
+          "token": "property",
+          "foreground": "#9db7d6"
+        }
+      ]
+    }
+  },
+  "typography": {
+    "fontFamily": [
+      "Fira Code",
+      "JetBrains Mono",
+      "SF Mono",
+      "Cascadia Code",
+      "Consolas",
+      "Monaco",
+      "Courier New",
+      "monospace"
+    ],
+    "fontSize": {
+      "editor": 14,
+      "terminal": 13,
+      "ui": 13
+    },
+    "lineHeight": 1.6,
+    "fontWeight": {
+      "normal": 400,
+      "bold": 600
+    }
+  },
+  "accessibility": {
+    "contrastRatio": {
+      "minimum": 4.5,
+      "enhanced": 7.0
+    },
+    "reducedMotion": false,
+    "highContrast": false
+  },
+  "customizations": {
+    "supportedLanguages": [
+      "typescript",
+      "javascript",
+      "python",
+      "html",
+      "css",
+      "scss",
+      "less",
+      "json",
+      "jsonc",
+      "markdown",
+      "yaml",
+      "xml",
+      "php",
+      "java",
+      "c",
+      "cpp",
+      "csharp",
+      "go",
+      "rust",
+      "ruby",
+      "swift",
+      "kotlin"
+    ],
+    "frameworks": [
+      "react",
+      "vue",
+      "angular",
+      "svelte",
+      "nextjs",
+      "nuxtjs",
+      "django",
+      "flask",
+      "fastapi",
+      "express",
+      "spring",
+      "laravel"
+    ]
+  },
+  "buildInfo": {
+    "version": "1.0.0",
+    "buildDate": "2025-01-31",
+    "generator": "Midnight Blueprint Theme Generator",
+    "author": "Theme Developer",
+    "license": "MIT"
+  }
+}

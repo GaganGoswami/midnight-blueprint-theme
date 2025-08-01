@@ -1,0 +1,47 @@
+{
+  "name": "midnight-blueprint",
+  "displayName": "Midnight Blueprint",
+  "description": "A minimalist dark blue theme inspired by Dark Modern with elegant syntax highlighting",
+  "version": "1.0.0",
+  "publisher": "Gagan-Goswami",
+  "author": {
+    "name": "Gagan Goswami"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "blue",
+    "modern",
+    "minimalist",
+    "blueprint",
+    "midnight"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Midnight Blueprint",
+        "uiTheme": "vs-dark",
+        "path": "./themes/midnight-blueprint-color-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GaganGoswami/midnight-blueprint-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GaganGoswami/midnight-blueprint-theme/issues"
+  },
+  "homepage": "https://github.com/GaganGoswami/midnight-blueprint-theme#readme",
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#1a1f2e",
+    "theme": "dark"
+  }
+}

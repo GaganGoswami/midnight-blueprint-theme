@@ -1,0 +1,41 @@
+# VS Code Extension - Ignore patterns
+
+# Development files
+.vscode/
+.git/
+.gitignore
+node_modules/
+out/
+src/
+*.vsix
+
+# Documentation that's not needed in the extension
+INSTALL.md
+setup.sh
+theme-config.json
+tsconfig.json
+
+# Keep samples for theme testing
+# samples/
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Development dependencies
+package-lock.json
+yarn.lock
+
+# IDE files
+.idea/
+*.swp
+*.swo
+
+# Test files
+test/
+tests/
+__tests__/
+*.test.*
+*.spec.*
